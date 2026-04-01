@@ -3,7 +3,8 @@
 }
 
 .container-hero {
-  padding: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -11,7 +12,8 @@
     padding: 32px 0;
   }
   .container-hero {
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -20,6 +22,7 @@
     padding: 64 0;
   }
   .container-hero {
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
