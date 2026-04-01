@@ -1,25 +1,24 @@
-.header {
+.feedback {
   padding: 20px 0;
 }
 
-.container-header {
-  padding: 0;
+.container-feedback {
+  padding: 0 64px;
 }
 
 @media screen and (min-width: 768px) {
-  .header {
+  .feedback {
     padding: 32px 0;
   }
-  .container-header {
-    padding: 0;
+  .container-feedback {
+    padding: 0 32px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .header {
+  .feedback {
     padding: 64 0;
   }
-  .container-header {
-    padding: 0;
+  .container-feedback {
   }
 }

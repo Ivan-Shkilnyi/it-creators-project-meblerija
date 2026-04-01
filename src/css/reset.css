@@ -1,3 +1,10 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3,
@@ -21,6 +28,7 @@ ul {
 a {
   color: currentColor;
   text-decoration: none;
+  font-style: normal;
 }
 
 button {
@@ -29,6 +37,7 @@ button {
 
 img {
   display: block;
-  max-width: 100%;
-  height: auto;
+}
+.hide {
+  display: none;
 }

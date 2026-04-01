@@ -1,25 +1,25 @@
-.header {
+.hero {
   padding: 20px 0;
 }
 
-.container-header {
+.container-hero {
   padding: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .header {
+  .hero {
     padding: 32px 0;
   }
-  .container-header {
+  .container-hero {
     padding: 0;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .header {
+  .hero {
     padding: 64 0;
   }
-  .container-header {
+  .container-hero {
     padding: 0;
   }
 }
