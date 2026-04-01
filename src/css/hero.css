@@ -1,28 +1,26 @@
 .hero {
-  padding: 20px 0;
+  padding: 0 20px;
 }
 
 .container-hero {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
 }
 
 @media screen and (min-width: 768px) {
   .hero {
-    padding: 32px 0;
+    padding: 0 32px;
   }
   .container-hero {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .hero {
-    padding: 64px 0;
+    padding: 0 64px;
   }
   .container-hero {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 92px;
+    padding-top: 92px;
   }
 }

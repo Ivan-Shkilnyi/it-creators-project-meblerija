@@ -1,27 +1,27 @@
 .about {
-  padding: 20px 0;
+  padding: 0 20px;
 }
 
 .container-about {
-  padding: 0 64px;
+  padding: 64px 0;
 }
 
 @media screen and (min-width: 768px) {
   .about {
-    padding: 32px 0;
+    padding: 0 32px;
   }
 
   .container-about {
-    padding: 0 32px;
+    padding: 32px 0;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .about {
-    padding: 64px 0;
+    padding: 0 64px;
   }
 
   .container-about {
-    padding: 0 64px;
+    padding: 64px 0;
   }
 }
