@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "it-creators-project-meblerija",
+    "build": "vite build --base=/it-creators-project-meblerija",
     "preview": "vite preview"
   },
   "devDependencies": {
