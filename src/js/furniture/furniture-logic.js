@@ -62,6 +62,59 @@ export async function initCategories() {
   }
 }
 
+// ---------- Fetches and renders furniture ----------
+
+export async function renderFurnitureSection(category = '', page = 1) {
+  try {
+    showLoader();
+
+    currentCategory = category;
+    currentPage = page;
+
+    const data = await fetchFurniture(category, page);
+    const items = data?.furnitures || [];
+    const totalItems = data?.totalItems || 0;
+    const limit = data?.limit || 8;
+    const totalPages = Math.ceil(totalItems / limit);
+
+    if (page === 1) {
+      refs.furnitureList.innerHTML = '';
+      if (items.length === 0) {
+        iziToast.info({ message: 'Товарів не знайдено', position: 'topRight' });
+        hideLoadMoreButton();
+        return data;
+      }
+      refs.furnitureList.innerHTML = createFurnitureMarkup(items);
+    } else {
+      appendFurniture(refs.furnitureList, items);
+    }
+
+    if (page >= totalPages || items.length < limit) {
+      hideLoadMoreButton();
+    } else {
+      showLoadMoreButton();
+    }
+
+    if (page > 1 && (page >= totalPages || items.length < limit)) {
+      iziToast.info({
+        message: 'Ви досягли кінця списку',
+        position: 'topRight',
+      });
+    }
+
+    return data;
+  } catch (error) {
+    hideLoadMoreButton();
+    refs.furnitureList.innerHTML = '';
+    iziToast.error({
+      message: 'Сталася помилка. Спробуйте пізніше',
+      position: 'topRight',
+    });
+  } finally {
+    hideLoader();
+  }
+}
+
 // --------------- Load More ---------------
 
 refs.loadMoreBtn.addEventListener('click', async () => {
