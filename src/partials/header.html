@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container container-header">
     <nav class="nav">
-      <a class="logo" href="#">
+      <a class="logo" href="./index.html">
         <img src="./img/logo.svg" alt="logo" width="163" height="69.86">
       </a>
 
@@ -26,7 +26,7 @@
 
 <div class="mobile-menu js-menu-container ">
   <div class="mobile-menu-head"> 
-    <a class="logo" href="#">
+    <a class="logo mobile-logo" href="./index.html">
       <img src="./img/logo.svg" alt="logo" width="163" height="69.86">
     </a>
     
@@ -38,10 +38,10 @@
   </div>
 
   <ul class="mobile-nav-list">
-    <li><a href="#">Наші меблі</a></li>
-    <li><a href="#">Про нас</a></li>
-    <li><a href="#">Часті питання</a></li>
-    <li><a href="#">Відгуки</a></li>
+    <li><a href="#" class="mobile-nav-link">Наші меблі</a></li>
+    <li><a href="#" class="mobile-nav-link">Про нас</a></li>
+    <li><a href="#" class="mobile-nav-link">Часті питання</a></li>
+    <li><a href="#" class="mobile-nav-link">Відгуки</a></li>
   </ul>
   <button class="btn-primary mobile-btn">До покупок</button>
 </div>
@@ -68,17 +68,41 @@
   </div>
 -->
 <script> 
-const openBtn = document.querySelector('.js-open-menu');
-const closeBtn = document.querySelector('.js-close-menu');
-const menu = document.querySelector('.js-menu-container');
+    const openBtn = document.querySelector('.js-open-menu');
+    const closeBtn = document.querySelector('.js-close-menu');
+    const menu = document.querySelector('.js-menu-container');
 
 openBtn.addEventListener('click', () => {
-menu.classList.add('is-open');
-document.body.style.overflow = 'hidden'; // блокуємо скрол
+      menu.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
 });
 
-closeBtn.addEventListener('click', () => {
-menu.classList.remove('is-open');
-document.body.style.overflow = ''; // повертаємо скрол
+    closeBtn.addEventListener('click', closeMenu);
+
+    function closeMenu() {
+      menu.classList.remove('is-open');
+    document.body.style.overflow = '';
+}
+
+// Клік поза меню
+menu.addEventListener('click', (e) => {
+  if (e.target === menu) {
+      closeMenu();
+  }
 });
+
+// ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+      closeMenu();
+  }
+});
+  const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+  
 </script>

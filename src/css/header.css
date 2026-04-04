@@ -14,10 +14,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 72px;
 }
 
 /* LOGO */
 .logo img {
+  display: block;
+}
+.mobile-logo {
   display: block;
 }
 
@@ -31,7 +35,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  /*padding: 4px;*/
+  padding: 4px;
 }
 
 /* ================= MOBILE MENU ================= */
@@ -44,22 +48,23 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
 
   transform: translateX(100%);
   transition: transform 0.3s ease;
 
-  font-family: var(--font-family);
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 160%;
-    color: var(--color-scheme-1-text);
+  font-family: "Raleway", sans-serif;;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 160%;
+  color: var(--color-scheme-1-text);
 }
 .mobile-menu-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 20px;
 }
 
 /* ACTIVE */
@@ -69,7 +74,7 @@
 
 /* CLOSE BTN */
 .menu-close {
-  align-self: flex-end;
+ 
   background: none;
   border: none;
   cursor: pointer;
@@ -79,7 +84,7 @@
 .mobile-nav-list {
   list-style: none;
   text-align: center;
-  margin-top: 80px;
+  
 }
 
 .mobile-nav-list li {
@@ -91,8 +96,12 @@
   color: #111;
   font-size: 18px;
   font-weight: 600;
-  font-family: "Raleway", sans-serif;
 }
+
+ .mobile-nav-link:hover,
+ .mobile-nav-link:focus {
+   opacity: 0.5;
+ }
 
 /* BUTTON */
 .btn-primary {
@@ -113,6 +122,18 @@
   color: #fff;
 
 }
+.btn-primary:hover,
+.btn-primary:focus {
+  opacity: 0.5;
+ 
+}
+
+/* Active для кнопки (натискання) */
+.btn-primary:active {
+  background: rgba(8, 12, 9, 0.05);
+  transform: translateY(1px);
+  color: #080C09;
+}
 
 /* ================= TABLET ================= */
 
@@ -122,7 +143,36 @@
     padding: 0px 32px;
   }
 
+  .mobile-menu {
+    padding: 32px;
+    width: 249px;
+    height: auto;
+    left: auto;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    transform: translateX(100%);
+  }
+   .mobile-menu.is-open {
+    transform: translateX(0);
+  }
 
+  
+   .mobile-nav-list {
+    text-align: right;
+
+  }
+
+ .mobile-btn {
+   width: 185px;
+   height: 42px;
+  align-self: flex-end;
+ }
+  .mobile-logo {
+    opacity: 0;           /* логотип «невидимий», але займає місце */
+    pointer-events: none; /* по кліку нічого не робить */
+    width: 163px;
+  }
   
 }
 
@@ -132,6 +182,9 @@
   .header {
     padding: 0px 64px;
   }
+.mobile-menu {
+  padding: 20px 64px;
+}
 
     /* show desktop nav */
   .nav-desktop {
@@ -160,7 +213,6 @@
     .nav-link {
       text-decoration: none;
       color: #080C09;
-      font-size: 14px;
       font-weight: 400;
       font-size: 16px;
       line-height: 160%;
@@ -168,9 +220,12 @@
       transition: 0.2s;
     }
   
-    .nav-link:hover {
-      opacity: 0.6;
+    .nav-link:hover,
+    .nav-link:focus {
+      opacity: 0.5;
     }
+
+   
   
     /* button smaller desktop */
     .btn-primary {
