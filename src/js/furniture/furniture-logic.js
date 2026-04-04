@@ -38,7 +38,7 @@ const CATEGORIES_ORDER = [
   'Декор та аксесуари',
 ];
 
-export async function initCategories() {
+async function initCategories() {
   try {
     refs.loader.classList.remove('hidden');
     const apiCategories = await fetchCategories();
@@ -66,6 +66,8 @@ export async function initCategories() {
     refs.loader.classList.add('hidden');
   }
 }
+
+document.addEventListener('DOMContentLoaded', initCategories);
 
 // ---------- Fetches and renders furniture ----------
 
