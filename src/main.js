@@ -1,4 +1,4 @@
-import './css/furniture.css';
+// import './css/furniture.css';
 import './js/api';
 import './js/menu.js';
 import './js/order-modal.js';

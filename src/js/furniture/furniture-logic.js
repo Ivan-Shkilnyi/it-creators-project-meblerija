@@ -1,3 +1,5 @@
+import '../../css/furniture.css';
+
 import { fetchCategories, fetchFurniture } from './furniture-api.js';
 import {
   createCategoriesMarkup,
@@ -22,7 +24,7 @@ let currentPage = 1;
 
 const CATEGORIES_ORDER = [
   'Всі товари',
-  'М’які меблі',
+  "М'які меблі",
   'Шафи та системи зберігання',
   'Ліжка та матраци',
   'Столи',
@@ -56,7 +58,10 @@ export async function initCategories() {
 
     await renderFurnitureSection('', 1);
   } catch (error) {
-    console.error(error);
+    iziToast.error({
+      message: 'Не вдалося завантажити товари. Спробуйте пізніше.',
+      position: 'topRight',
+    });
   } finally {
     refs.loader.classList.add('hidden');
   }
@@ -144,12 +149,6 @@ refs.loadMoreBtn.addEventListener('click', async () => {
 
   try {
     await renderFurnitureSection(currentCategory, currentPage);
-
-    // const firstCard = document.querySelector('.furniture-item');
-    // if (firstCard) {
-    //   const cardHeight = firstCard.getBoundingClientRect().height;
-    //   window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' });
-    // }
   } catch (error) {
     iziToast.error({
       message: 'Сталася помилка. Спробуйте пізніше',
