@@ -52,6 +52,7 @@
 }
 
 .star {
+  fill: #080c09;
 }
 
 .feedback-text {
@@ -151,7 +152,8 @@
 
   .feedback-list {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: center;
     gap: 24px;
   }
