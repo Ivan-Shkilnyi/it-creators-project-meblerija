@@ -1,4 +1,5 @@
 import '../../css/furniture.css';
+// import '../product-modal.js';    ПІДКЛЮЧИТИ МОДАЛКУ
 
 import { fetchCategories, fetchFurniture } from './furniture-api.js';
 import {
@@ -19,6 +20,20 @@ const refs = {
 
 let currentCategory = '';
 let currentPage = 1;
+
+// ----------------- modal call -----------------
+
+function initFurnitureModals() {
+  refs.furnitureList.addEventListener('click', e => {
+    const btn = e.target.closest('.details-btn');
+
+    if (!btn) return;
+
+    const furnitureId = btn.closest('.furniture-item').dataset.id;
+
+    openProductModal(furnitureId);
+  });
+}
 
 // ---------- Init-categories ----------
 
@@ -57,6 +72,8 @@ async function initCategories() {
     if (firstBtn) firstBtn.classList.add('is-active');
 
     await renderFurnitureSection('', 1);
+
+    initFurnitureModals();
   } catch (error) {
     iziToast.error({
       message: 'Не вдалося завантажити товари. Спробуйте пізніше.',
