@@ -9,6 +9,11 @@
 
 /* Мобільна версія */
 
+.hidden {
+  display: none;
+  cursor: none;
+}
+
 .feedback {
   padding: 0 20px;
 }
@@ -39,6 +44,11 @@
 .feedback-list {
   margin-bottom: 48px;
 }
+/* 
+.swiper {
+  width: 335px;
+  height: 363px;
+} */
 
 .feedback-item {
   display: flex;
@@ -158,6 +168,11 @@
     gap: 24px;
   }
 
+  /* .swiper {
+    width: 704px;
+    height: 350px;
+  } */
+
   .feedback-item {
     width: 340px;
   }
@@ -184,6 +199,11 @@
   .feedback-title {
     font-size: 48px;
   }
+
+  /* .swiper {
+    width: 1312px;
+    height: 318px;
+  } */
 
   .feedback-item {
     width: 421px;

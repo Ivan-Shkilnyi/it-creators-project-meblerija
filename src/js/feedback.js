@@ -1,7 +1,12 @@
-// Функція для запиту сервера
-
+// import Swiper from 'swiper';
+// import { Navigation, Pagination } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+import 'css-star-rating/css/star-rating.css';
 import axios from 'axios';
 
+// Функція для запиту сервера
 export async function getFeedbacks() {
   const baseURL = 'https://furniture-store-v2.b.goit.study/api';
   const endPoint = '/feedbacks';
@@ -15,16 +20,13 @@ export async function getFeedbacks() {
 }
 
 // Функція для рендеру
-
-import 'css-star-rating/css/star-rating.css';
-
 function feedbackTemplate(feedback) {
   const rating = feedback.rate;
   const valueRating = Math.floor(rating);
   const hasHalf = rating % 1 !== 0;
   const halfClass = hasHalf ? 'half' : '';
 
-  return `<li class="feedback-item">
+  return `<li class="feedback-item swiper-slide">
   <div class="rating star-svg value-${valueRating} ${halfClass} color-default">
         <ul class="star-container">
           <li class="star">
@@ -94,20 +96,63 @@ export function feedbacksTemplate(feedbacks) {
 }
 
 // Загальна логіка
-
 const feedbackList = document.querySelector('.feedback-list');
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // loader start
+  // ДОПИСАТИ приховати кнопки навігації і пагінації
+  // ДОПИСАТИ loader start
   try {
     const res = await getFeedbacks();
     feedbackList.insertAdjacentHTML(
       'afterbegin',
       feedbacksTemplate(res.feedbacks)
     );
+    // ДОПИСАТИ показати кнопки навігації і пагінації
   } catch (error) {
-    // show Error message
+    // ДОПИСАТИ show Error message
   } finally {
-    // loader finish
+    // ДОПИСАТИ loader finish
   }
 });
+
+// Налаштування Swiper and Pagination
+// const swiper = new Swiper('.mySwiper', {
+//   // Optional parameters
+//   direction: 'vertical',
+//   loop: false,
+
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+//   },
+
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+// });
+
+// Функції, щоб зробити кнопки активними і неактивними
+
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+
+function makeActiveBtn(nameBtn) {
+  nameBtn.removeAttribute('disabled');
+}
+
+function makeDisabledBtn(nameBtn) {
+  nameBtn.setAttribute('disabled', '');
+}
+
+// Функції, щоб зробити елемент видимим і невидимим
+//НЕ ПРАЦЮЄ ЧОМУСЬ
+
+function showElem(elem) {
+  elem.classList.remove('hidden');
+}
+
+function hideElem(elem) {
+  elem.classList.add('hidden');
+}
