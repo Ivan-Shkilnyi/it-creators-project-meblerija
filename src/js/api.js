@@ -62,7 +62,7 @@ api.interceptors.response.use(
 
 export async function postOrder(payload) {
     const { data } = await api.post('/orders', payload);
-    return data;
+    return data;}
 export const BASE_URL = 'https://furniture-store-v2.b.goit.study';
 
 const api = axios.create({
