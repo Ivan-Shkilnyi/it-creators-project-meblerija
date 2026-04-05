@@ -1,10 +1,15 @@
-// import Swiper from 'swiper';
-// import { Navigation, Pagination } from 'swiper/modules';
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import 'css-star-rating/css/star-rating.css';
 import axios from 'axios';
+
+//Посилання на елементи JS
+const feedbackList = document.querySelector('.feedback-list');
+const leftBtn = document.querySelector('.swiper-button-prev');
+const rightBtn = document.querySelector('.swiper-button-next');
 
 // Функція для запиту сервера
 export async function getFeedbacks() {
@@ -95,9 +100,54 @@ export function feedbacksTemplate(feedbacks) {
   return feedbacks.map(feedbackTemplate).join('');
 }
 
-// Загальна логіка
-const feedbackList = document.querySelector('.feedback-list');
+// Налаштування Swiper and Pagination
+const swiper = new Swiper('.swiper', {
+  modules: [Navigation, Pagination],
+  // Optional parameters
+  direction: 'horizontal',
+  loop: false,
 
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  slidesPerView: 1,
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+    1440: {
+      slidesPerView: 3,
+      spaceBetween: 24,
+    },
+  },
+
+  allowSlideNext: true,
+  allowSlidePrev: true,
+  grabCursor: true,
+});
+
+// Функції, щоб зробити елемент видимим і невидимим
+//НЕ ПРАЦЮЄ ЧОМУСЬ
+
+function showElem(elem) {
+  elem.classList.remove('hidden');
+}
+
+function hideElem(elem) {
+  elem.classList.add('hidden');
+}
+
+// Загальна логіка
 document.addEventListener('DOMContentLoaded', async () => {
   // ДОПИСАТИ приховати кнопки навігації і пагінації
   // ДОПИСАТИ loader start
@@ -114,45 +164,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     // ДОПИСАТИ loader finish
   }
 });
-
-// Налаштування Swiper and Pagination
-// const swiper = new Swiper('.mySwiper', {
-//   // Optional parameters
-//   direction: 'vertical',
-//   loop: false,
-
-//   // If we need pagination
-//   pagination: {
-//     el: '.swiper-pagination',
-//   },
-
-//   // Navigation arrows
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
-// });
-
-// Функції, щоб зробити кнопки активними і неактивними
-
-const leftBtn = document.querySelector('.left-btn');
-const rightBtn = document.querySelector('.right-btn');
-
-function makeActiveBtn(nameBtn) {
-  nameBtn.removeAttribute('disabled');
-}
-
-function makeDisabledBtn(nameBtn) {
-  nameBtn.setAttribute('disabled', '');
-}
-
-// Функції, щоб зробити елемент видимим і невидимим
-//НЕ ПРАЦЮЄ ЧОМУСЬ
-
-function showElem(elem) {
-  elem.classList.remove('hidden');
-}
-
-function hideElem(elem) {
-  elem.classList.add('hidden');
-}

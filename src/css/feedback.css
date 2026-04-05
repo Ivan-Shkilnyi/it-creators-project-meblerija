@@ -44,11 +44,18 @@
 .feedback-list {
   margin-bottom: 48px;
 }
-/* 
+
 .swiper {
   width: 335px;
   height: 363px;
-} */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+}
 
 .feedback-item {
   display: flex;
@@ -87,30 +94,31 @@
   gap: 135px;
 }
 
-/* ЗАГЛУШКА ДЛЯ ВИДИМОСТІ */
-.pagination {
-  width: 24px;
-  height: 24px;
-  background-color: aqua;
+.swiper-pagination {
+  color: gray;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* ЗАГЛУШКА ДЛЯ ВИДИМОСТІ */
 
-.btn-wrapper {
+.swiper-pagination:active {
+  color: #080c09;
+}
+
+/* .btn-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
-}
+} */
 
-.left-btn,
-.right-btn {
+.swiper-button-prev,
+.swiper-button-next {
   border: 1px solid rgba(8, 12, 9, 0.15);
   border-radius: 100px;
   padding: 12px;
   width: 48px;
   height: 48px;
   background-color: #f2f2f2;
-  fill: #080c09;
+  color: #080c09;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,25 +128,25 @@
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.left-btn:hover,
-.right-btn:hover,
-.left-btn:focus,
-.right-btn:focus {
+.swiper-button-prev:hover,
+.swiper-button-next:hover,
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
   background-color: #975052;
-  fill: #fff;
+  color: #fff;
 }
 
-.left-btn:active,
-.right-btn:active {
+.swiper-button-prev:active,
+.swiper-button-next:active {
   background-color: #6b0609;
-  fill: #fff;
+  color: #fff;
 }
 
-.left-btn:disabled,
-.right-btn:disabled {
+.swiper-button-prev:disabled,
+.swiper-button-next:disabled {
   background-color: #f2f2f2;
   opacity: 0.3;
-  fill: #080c09;
+  color: #080c09;
   cursor: not-allowed;
 }
 
@@ -168,10 +176,10 @@
     gap: 24px;
   }
 
-  /* .swiper {
+  .swiper {
     width: 704px;
     height: 350px;
-  } */
+  }
 
   .feedback-item {
     width: 340px;
@@ -200,10 +208,10 @@
     font-size: 48px;
   }
 
-  /* .swiper {
+  .swiper {
     width: 1312px;
     height: 318px;
-  } */
+  }
 
   .feedback-item {
     width: 421px;
