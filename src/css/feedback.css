@@ -1,3 +1,10 @@
+/* Мобільна версія */
+
+.hidden {
+  display: none !important;
+  cursor: none !important;
+}
+
 .feedback {
   padding: 0 20px;
 }
@@ -6,6 +13,118 @@
   padding: 64px 0;
 }
 
+.feedback-title {
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin-bottom: 24px;
+  width: 335px;
+}
+
+.feedback-description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 80px;
+  width: 335px;
+}
+
+.swiper {
+  width: 100%;
+  min-height: 362px;
+  position: relative;
+}
+
+:root {
+  --swiper-theme-color: #080c09 !important;
+}
+
+.star {
+  fill: #080c09;
+}
+
+.rating {
+  justify-content: flex-start !important;
+  margin-bottom: 24px !important;
+}
+
+.feedback-text {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 335px;
+  margin-bottom: 24px;
+}
+
+.feedback-author {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.swiper-pagination {
+  color: gray;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: start !important;
+}
+
+.swiper-pagination:active {
+  color: #080c09;
+}
+
+.btn-wrapper {
+  position: absolute;
+  bottom: 24px;
+  right: 50px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 100px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background-color: #f2f2f2;
+  color: #080c09;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: static !important;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover,
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+  background-color: #975052;
+  color: #fff;
+}
+
+.swiper-button-prev:active,
+.swiper-button-next:active {
+  background-color: #6b0609;
+  color: #fff;
+}
+
+.swiper-button-prev:disabled,
+.swiper-button-next:disabled {
+  background-color: #f2f2f2;
+  opacity: 0.3;
+  color: #080c09;
+  cursor: not-allowed;
+}
+
+/* Планшетна версія */
+
 @media screen and (min-width: 768px) {
   .feedback {
     padding: 0 32px;
@@ -13,7 +132,29 @@
   .container-feedback {
     padding: 32px 0;
   }
+
+  .feedback-title {
+    width: 560px;
+  }
+
+  .feedback-description {
+    width: 560px;
+  }
+
+  .swiper {
+    min-height: 350px;
+  }
+
+  .feedback-item {
+    width: 340px;
+  }
+
+  .feedback-text {
+    width: 340px;
+  }
 }
+
+/* Десктопна версія */
 
 @media screen and (min-width: 1440px) {
   .feedback {
@@ -21,5 +162,21 @@
   }
   .container-feedback {
     padding: 64px 0;
+  }
+
+  .feedback-title {
+    font-size: 48px;
+  }
+
+  .swiper {
+    min-height: 318px;
+  }
+
+  .feedback-item {
+    width: 421px;
+  }
+
+  .feedback-text {
+    width: 370px;
   }
 }
