@@ -182,17 +182,12 @@ refs.loadMoreBtn.addEventListener('click', async () => {
   currentPage += 1;
 
   hideLoadMoreButton();
-  //   showLoader();
 
   try {
     await renderFurnitureSection(currentCategory, currentPage);
   } catch {
     showError('Сталася помилка. Спробуйте пізніше');
   }
-
-  //   finally {
-  //     hideLoader();
-  //   }
 });
 
 // --------------- UI helpers ---------------

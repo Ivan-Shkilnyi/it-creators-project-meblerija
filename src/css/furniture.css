@@ -49,7 +49,6 @@
 }
 
 .category-item {
-  flex: 0 0 158px;
   height: 122px;
   flex-basis: calc((100% - 16px) / 2);
 }
@@ -79,13 +78,22 @@
     rgba(0, 0, 0, 0.4)
   );
 
+  border: none;
+  outline: none;
   border-radius: 12px;
-  border: 8px solid transparent;
-  cursor: pointer;
+  box-shadow: inset 0 0 0 0 transparent;
 
-  transition:
-    transform 250ms ease,
-    border-color 250ms ease;
+  transition: transform box-shadow 250ms ease-in-out;
+}
+
+.category-btn:hover,
+.category-btn:focus {
+  opacity: 0.98;
+  transform: scale(1.02);
+}
+
+.category-btn.is-active {
+  box-shadow: inset 0 0 0 8px #6b0609;
 }
 
 .all-products {
@@ -205,16 +213,6 @@
     );
 }
 
-.category-btn:hover,
-.category-btn:focus {
-  opacity: 0.98;
-  transform: scale(1.02);
-}
-
-.category-btn.is-active {
-  border-color: #8b0000;
-}
-
 /* ------ Card-product ------ */
 
 .furniture-list {
@@ -300,7 +298,6 @@
 
   border-radius: 100px;
   padding: 10px 24px;
-  width: 335px;
   height: 46px;
 
   font-weight: 500;
@@ -308,11 +305,13 @@
   line-height: 26px;
   color: #080c09;
   border: none;
+  font-family: inherit;
 
   box-shadow:
     0 1px 2px 0 rgba(8, 12, 9, 0.05),
     inset 0 -2px 1px 0 rgba(8, 12, 9, 0.05),
     inset 0 0 0 1px rgba(8, 12, 9, 0.05);
+
   background-color: rgba(8, 12, 9, 0.05);
 }
 
@@ -328,21 +327,27 @@
   display: flex;
   justify-content: center;
 
-  padding: 40px 0;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 .load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
   border: none;
   border-radius: 100px;
-  cursor: pointer;
   padding: 10px 24px;
 
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
-  width: 340px;
+  max-width: 340px;
   height: 46px;
+
   color: #fff;
   background-color: #6b0609;
 
@@ -370,8 +375,38 @@
   opacity: 0.5;
 }
 
-#loader {
-  background-color: aqua;
+/* ------ Loader ------ */
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border-width: 8px;
+  border-style: dashed solid solid dotted;
+  border-color: #ff3d00 #ff3d00 transparent #ff3d00;
+  border-radius: 50%;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  animation: rotation 1s linear infinite;
+
+  opacity: 0;
+  z-index: 9999;
+}
+
+.loader.is-visible {
+  opacity: 1;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ------ Media ------ */
@@ -415,5 +450,9 @@
 
   .furniture-item {
     flex-basis: calc((100% - 72px) / 4);
+  }
+
+  .load-more {
+    max-width: 421px;
   }
 }
