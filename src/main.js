@@ -1,5 +1,5 @@
 import './js/furniture/furniture-logic.js';
-import './js/api';
+import './js/api.js';
 import './js/menu.js';
 import './js/order-modal.js';
 import './js/product-modal.js';
@@ -7,5 +7,3 @@ import './js/faq.js';
 import './js/feedback.js';
 import './js/feedback-section.js';
 import './js/loader.js';
-import { postOrder } from './js/api-v1.js';
-import { getFurnitures, getFurnitureById } from './js/api-v2.js';
