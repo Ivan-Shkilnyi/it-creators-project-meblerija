@@ -17,7 +17,7 @@ const refs = {
   categoriesList: document.querySelector('#categories'),
   furnitureList: document.querySelector('#furniture-list'),
   loadMoreBtn: document.querySelector('#load-more'),
-  loader: document.querySelector('#loader'),
+  loader: document.querySelector('#loaderid'),
 };
 
 let currentCategory = '';
