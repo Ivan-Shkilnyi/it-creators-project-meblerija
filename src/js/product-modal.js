@@ -1,51 +1,51 @@
-// const MOCK_FURNITURE = [
-//   {
-//     _id: '682f9bbf8acbdf505592ac36',
-//     name: 'Диван "Комфорт Плюс"',
-//     rate: 4.8,
-//     price: 9999,
-//     sizes: '220x95x90',
-//     category: { _id: '66504a50a1b2c3d4e5f6a7b9', name: 'Дивани' },
-//     description:
-//       'Класичний диван з м’якими подушками та високою спинкою, ідеальний для сімейного відпочинку. Оббивка з якісної зносостійкої тканини.',
-//     images: [
-//       './img/product-modal/bigsofa1x.jpg',
-//       './img/product-modal/cornersofa1x.jpg',
-//       './img/product-modal/smallsofa1x.jpg',
-//     ],
-//     color: ['#c7c3bb', '#ffffff', '#201a19'],
-//   },
-//   {
-//     _id: '682f9bbf8acbdf505592ac37',
-//     name: 'Крісло Comfort',
-//     rate: 4.5,
-//     price: 2499,
-//     sizes: '85x110x90',
-//     category: { _id: '66504a50a1b2c3d4e5f6a7ba', name: 'Крісла' },
-//     description:
-//       'Зручне крісло з опорою для спини. Підходить для робочого кабінету або вітальні. Екологічна тканина.',
-//     images: [
-//       './img/product-modal/cornersofa1x.jpg',
-//       './img/product-modal/bigsofa1x.jpg',
-//     ],
-//     color: ['#c7c3bb', '#201a19'],
-//   },
-//   {
-//     _id: '682f9bbf8acbdf505592ac38',
-//     name: 'Ліжко Premium',
-//     rate: 5,
-//     price: 15999,
-//     sizes: '160x50x200',
-//     category: { _id: '66504a50a1b2c3d4e5f6a7bb', name: 'Ліжка' },
-//     description:
-//       'Ортопедичне ліжко з матрацом. Покращує якість сну. Розмір: 160х200 см.',
-//     images: [
-//       './img/product-modal/smallsofa1x.jpg',
-//       './img/product-modal/bigsofa1x.jpg',
-//     ],
-//     color: ['#201a19', '#ffffff'],
-//   },
-// ];
+const MOCK_FURNITURE = [
+  {
+    _id: '682f9bbf8acbdf505592ac36',
+    name: 'Диван "Комфорт Плюс"',
+    rate: 4.8,
+    price: 9999,
+    sizes: '220x95x90',
+    category: { _id: '66504a50a1b2c3d4e5f6a7b9', name: 'Дивани' },
+    description:
+      'Класичний диван з м’якими подушками та високою спинкою, ідеальний для сімейного відпочинку. Оббивка з якісної зносостійкої тканини.',
+    images: [
+      'https://placehold.co/900x600/webp?text=Sofa+Main',
+      'https://placehold.co/600x400/webp?text=Sofa+View+1',
+      'https://placehold.co/600x400/webp?text=Sofa+View+2',
+    ],
+    color: ['#c7c3bb', '#ffffff', '#201a19'],
+  },
+  {
+    _id: '682f9bbf8acbdf505592ac37',
+    name: 'Крісло Comfort',
+    rate: 4.5,
+    price: 2499,
+    sizes: '85x110x90',
+    category: { _id: '66504a50a1b2c3d4e5f6a7ba', name: 'Крісла' },
+    description:
+      'Зручне крісло з опорою для спини. Підходить для робочого кабінету або вітальні. Екологічна тканина.',
+    images: [
+      'https://placehold.co/900x600/webp?text=Chair+Main',
+      'https://placehold.co/600x400/webp?text=Chair+View+1',
+    ],
+    color: ['#c7c3bb', '#201a19'],
+  },
+  {
+    _id: '682f9bbf8acbdf505592ac38',
+    name: 'Ліжко Premium',
+    rate: 5,
+    price: 15999,
+    sizes: '160x50x200',
+    category: { _id: '66504a50a1b2c3d4e5f6a7bb', name: 'Ліжка' },
+    description:
+      'Ортопедичне ліжко з матрацом. Покращує якість сну. Розмір: 160х200 см.',
+    images: [
+      'https://placehold.co/900x600/webp?text=Bed+Main',
+      'https://placehold.co/600x400/webp?text=Bed+View+1',
+    ],
+    color: ['#201a19', '#ffffff'],
+  },
+];
 
 const refs = {
   backdrop: document.querySelector('[data-product-backdrop]'),
