@@ -137,10 +137,7 @@ export async function openProductModal(id) {
   const currentRequestId = ++state.requestId;
 
   try {
-    const response = await fetch(
-      `https://furniture-store-v2.b.goit.study/api/furnitures/${id}`
-    );
-    const data = await response.json();
+    const data = await loadFurnitureById(id);
 
     if (currentRequestId !== state.requestId) return;
 
@@ -365,14 +362,22 @@ function formatPriceUAH(price) {
   return `${new Intl.NumberFormat('uk-UA').format(Number(price || 0))} грн`;
 }
 
-async function getFurnitureById(id) {
+async function loadFurnitureById(id) {
   const mockFurniture = MOCK_FURNITURE.find(item => item._id === String(id));
-  if (mockFurniture) return mockFurniture;
 
   try {
-    const apiFurniture = await fetchFurnitureById(id);
+    const response = await fetch(
+      `https://furniture-store-v2.b.goit.study/api/furnitures/${id}`
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const apiFurniture = await response.json();
     return normalizeFurniture(apiFurniture);
   } catch (error) {
+    if (mockFurniture) return mockFurniture;
     throw error;
   }
 }
