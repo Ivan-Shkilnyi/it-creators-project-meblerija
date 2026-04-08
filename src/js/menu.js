@@ -5,6 +5,7 @@ const menu = document.querySelector('.js-menu-container');
 openBtn.addEventListener('click', () => {
   menu.classList.add('is-open');
   document.body.style.overflow = 'hidden';
+  openBtn.classList.add('hide');
 });
 
 closeBtn.addEventListener('click', closeMenu);
@@ -12,6 +13,7 @@ closeBtn.addEventListener('click', closeMenu);
 function closeMenu() {
   menu.classList.remove('is-open');
   document.body.style.overflow = '';
+  openBtn.classList.remove('hide');
 }
 
 // Клік поза меню
